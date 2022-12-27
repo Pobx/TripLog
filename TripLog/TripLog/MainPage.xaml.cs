@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using TripLog.Models;
+using TripLog.Views;
 
 namespace TripLog
 {
@@ -47,6 +48,12 @@ namespace TripLog
 
             trips.ItemsSource = items;
         }
+
+        void New_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new NewEntryPage());
+        }
+
     }
 }
 
