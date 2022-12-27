@@ -8,7 +8,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <ListView x:Name="trips">
+        <ListView x:Name="trips" ItemTapped="Trips_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Title}"
