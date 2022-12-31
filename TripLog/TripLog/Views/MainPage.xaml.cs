@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using TripLog.Models;
 using TripLog.Views;
 
-namespace TripLog
+namespace TripLog.Views
 {
     public partial class MainPage : ContentPage
     {
