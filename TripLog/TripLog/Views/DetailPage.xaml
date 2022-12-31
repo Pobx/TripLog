@@ -2,8 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-    x:Class="TripLog.Views.DetailPage">
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns:viewmodels="clr-namespace:TripLog.ViewModels"
+    x:Class="TripLog.Views.DetailPage"
+    x:DataType="viewmodels:DetailViewModel"
+    >
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,10 +19,10 @@
             <BoxView Grid.Row="1" BackgroundColor="White" Opacity=".8"/>
 
             <StackLayout Padding="10" Grid.Row="1">
-                <Label x:Name="title" HorizontalOptions="Center" />
-                <Label x:Name="date" HorizontalOptions="Center"/>
-                <Label x:Name="rating" HorizontalOptions="Center"/>
-                <Label x:Name="notes" HorizontalOptions="Center" />
+                <Label Text="{Binding Entry.Title}" HorizontalOptions="Center" />
+                <Label Text="{Binding Entry.Date, StringFormat='{0:M}'}" HorizontalOptions="Center"/>
+                <Label Text="{Binding Entry.Rating, StringFormat='{0} star rating'}" HorizontalOptions="Center"/>
+                <Label Text="{Binding Entry.Notes}" HorizontalOptions="Center" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

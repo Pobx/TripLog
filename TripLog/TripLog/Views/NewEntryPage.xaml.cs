@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using TripLog.ViewModels;
 
 namespace TripLog.Views
 {
@@ -10,6 +11,7 @@ namespace TripLog.Views
         public NewEntryPage()
         {
             InitializeComponent();
+            BindingContext = new NewEntryViewModel();
         }
     }
 }
