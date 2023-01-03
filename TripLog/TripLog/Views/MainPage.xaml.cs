@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using TripLog.Models;
 using TripLog.Views;
 using TripLog.ViewModels;
+using TripLog.Services;
 
 namespace TripLog.Views
 {
@@ -17,7 +18,7 @@ namespace TripLog.Views
         {
             InitializeComponent();
 
-            BindingContext = new MainViewModel();
+            BindingContext = new MainViewModel(DependencyService.Get<INavService>());
         }
 
         void New_Clicked(System.Object sender, System.EventArgs e)

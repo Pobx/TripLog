@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using TripLog.Models;
 using Xamarin.Forms.Maps;
 using TripLog.ViewModels;
+using TripLog.Services;
 
 namespace TripLog.Views
 {
@@ -18,7 +19,7 @@ namespace TripLog.Views
         public DetailPage()
         {
             InitializeComponent();
-            BindingContext = new DetailViewModel();
+            BindingContext = new DetailViewModel(DependencyService.Get<INavService>());
 
             map.MoveToRegion(MapSpan.FromCenterAndRadius(
                 new Position(_vm.Entry.Latitude, _vm.Entry.Longitude)
