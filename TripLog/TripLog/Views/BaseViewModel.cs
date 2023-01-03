@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace TripLog.Views
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        protected BaseViewModel()
+        protected BaseViewModel() : base()
         {
 
         }
@@ -17,6 +18,24 @@ namespace TripLog.Views
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public abstract Task Init();
+    }
+
+    public abstract class BaseViewModel<TParameter> : BaseViewModel
+    {
+        protected BaseViewModel() : base()
+        {
+
+        }
+
+        public override async Task Init()
+        {
+            await Init(default(TParameter));
+        }
+
+        public abstract Task Init(TParameter parameter);
+
     }
 }
 
