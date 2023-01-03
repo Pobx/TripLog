@@ -5,11 +5,11 @@
              x:DataType="viewmodels:MainViewModel"
              Title="TripLog">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="New" Clicked="New_Clicked"/>
+        <ToolbarItem Text="New" Command="{Binding NewCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding LogEntries}" ItemTapped="Trips_ItemTapped">
+        <ListView x:Name="trips" ItemsSource="{Binding LogEntries}" ItemTapped="Trips_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Title}"
