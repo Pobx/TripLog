@@ -3,6 +3,7 @@ using TripLog.Views;
 using Xamarin.Forms;
 using TripLog.Models;
 using TripLog.Services;
+using System.Threading.Tasks;
 
 namespace TripLog.ViewModels
 {
@@ -80,7 +81,7 @@ namespace TripLog.ViewModels
         {
             get
             {
-                return _saveCommand ?? (_saveCommand = new Command(ExecuteSaveCommand, CanSave));
+                return _saveCommand ?? (_saveCommand = new Command(async () => await ExecuteSaveCommand(), CanSave));
             }
         }
 
@@ -90,7 +91,7 @@ namespace TripLog.ViewModels
             Rating = 1;
         }
 
-        void ExecuteSaveCommand()
+        async Task ExecuteSaveCommand()
         {
             var newItem = new TripLogEntry
             {
@@ -101,11 +102,19 @@ namespace TripLog.ViewModels
                 Rating = Rating,
                 Notes = Notes
             };
+
+            //TODO: Persist Entry in a later chapter.
+            await NavService.GoBack();
         }
 
         bool CanSave()
         {
             return !string.IsNullOrWhiteSpace(Title);
+        }
+
+        public override Task Init()
+        {
+            throw new NotImplementedException();
         }
     }
 }
