@@ -2,6 +2,7 @@
 using TripLog.Views;
 using TripLog.Models;
 using System.Threading.Tasks;
+using TripLog.Services;
 
 namespace TripLog.ViewModels
 {
@@ -17,7 +18,7 @@ namespace TripLog.ViewModels
                 OnPropertyChanged();
             }
         }
-        public DetailViewModel()
+        public DetailViewModel(INavService navService) : base(navService)
         {
         }
 

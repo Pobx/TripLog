@@ -2,14 +2,17 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using TripLog.Services;
 
 namespace TripLog.Views
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        protected BaseViewModel() : base()
-        {
+        protected INavService NavService { get; private set; }
 
+        protected BaseViewModel(INavService navService) : base()
+        {
+            NavService = navService;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,7 +27,7 @@ namespace TripLog.Views
 
     public abstract class BaseViewModel<TParameter> : BaseViewModel
     {
-        protected BaseViewModel() : base()
+        protected BaseViewModel(INavService navService) : base(navService)
         {
 
         }

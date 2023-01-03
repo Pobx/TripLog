@@ -2,6 +2,7 @@
 using TripLog.Views;
 using Xamarin.Forms;
 using TripLog.Models;
+using TripLog.Services;
 
 namespace TripLog.ViewModels
 {
@@ -83,7 +84,7 @@ namespace TripLog.ViewModels
             }
         }
 
-        public NewEntryViewModel()
+        public NewEntryViewModel(INavService navService) : base(navService)
         {
             Date = DateTime.Today;
             Rating = 1;

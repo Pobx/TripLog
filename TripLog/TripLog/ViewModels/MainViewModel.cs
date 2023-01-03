@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using TripLog.Views;
 using TripLog.Models;
 using System.Threading.Tasks;
+using TripLog.Services;
 
 namespace TripLog.ViewModels
 {
@@ -22,7 +23,7 @@ namespace TripLog.ViewModels
             }
         }
 
-        public MainViewModel() : base()
+        public MainViewModel(INavService navService) : base(navService)
         {
             LogEntries = new ObservableCollection<TripLogEntry>();
 
