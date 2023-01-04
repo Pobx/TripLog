@@ -22,6 +22,8 @@ namespace TripLog.Views
         public MainPage()
         {
             InitializeComponent();
+
+            BindingContext = new MainViewModel(DependencyService.Get<INavService>());
         }
 
         void Trips_ItemTapped(object sender, ItemTappedEventArgs e)

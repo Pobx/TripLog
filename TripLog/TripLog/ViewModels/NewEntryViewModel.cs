@@ -1,5 +1,4 @@
 ﻿using System;
-using TripLog.Views;
 using Xamarin.Forms;
 using TripLog.Models;
 using TripLog.Services;
@@ -112,9 +111,8 @@ namespace TripLog.ViewModels
             return !string.IsNullOrWhiteSpace(Title);
         }
 
-        public override Task Init()
+        public override async Task Init()
         {
-            throw new NotImplementedException();
         }
     }
 }

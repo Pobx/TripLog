@@ -1,5 +1,4 @@
 ﻿using System;
-using TripLog.Views;
 using TripLog.Models;
 using System.Threading.Tasks;
 using TripLog.Services;

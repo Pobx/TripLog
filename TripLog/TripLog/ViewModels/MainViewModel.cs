@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using TripLog.Views;
 using TripLog.Models;
 using System.Threading.Tasks;
 using TripLog.Services;
@@ -88,7 +87,6 @@ namespace TripLog.ViewModels
                 });
             });
         }
-
 
         async Task ExecuteViewCommand(TripLogEntry entry)
         {

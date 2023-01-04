@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using TripLog.Views;
+using TripLog.ViewModels;
 
 namespace TripLog.Services
 {
