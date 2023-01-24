@@ -22,6 +22,22 @@ namespace TripLog.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected virtual void OnIsBusyChanged()
+        {
+
+        }
     }
 
     public abstract class BaseViewModel<TParameter> : BaseViewModel
@@ -37,6 +53,22 @@ namespace TripLog.ViewModels
         }
 
         public abstract Task Init(TParameter parameter);
+
+        bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected virtual void OnIsBusyChanged()
+        {
+
+        }
 
     }
 }
